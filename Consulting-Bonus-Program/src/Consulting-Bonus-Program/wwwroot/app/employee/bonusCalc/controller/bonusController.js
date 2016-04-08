@@ -11,9 +11,7 @@
 
         var vm = this;
         vm.netIncome = '';
-        vm.billedHours = 0;
         vm.employees = employees;
-
         employees.list().then(function (res, status, headers, config) {
             vm.employees = res.data;
         });
@@ -31,7 +29,7 @@
             var totalBillingPoints = 0;
 
             _.each(vm.employees, function (employee) {
-                var billingPoints = $window.Math.round(vm.billedHours * employee.loyaltyFactor);
+                var billingPoints = $window.Math.round(employee.billedHours * employee.loyaltyFactor);
                 totalBillingPoints += billingPoints;
                 $.extend(employee, { billingPoints: billingPoints });
             })
