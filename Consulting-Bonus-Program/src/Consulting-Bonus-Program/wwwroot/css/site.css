@@ -1,0 +1,44 @@
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.navbar-brand-img {
+    float: left;
+    height: 50px;
+    padding: 5px 15px;
+    font-size: 18px;
+    line-height: 20px;
+}
+.navbar {
+  background-color: #808080;
+}
+
+
+.navbar-nav > li > a {
+    color: #FFF
+}
+
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+    background-color: #696969;
+    color: #FFF;
+}
+
+.icon-bar {
+    background-color: #FFF;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #808080;
+}
+
+.footer-img {
+    margin-top: 10px;
+}

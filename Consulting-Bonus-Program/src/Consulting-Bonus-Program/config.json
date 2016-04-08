@@ -1,0 +1,10 @@
+﻿{
+  "AppSettings": {
+    "SiteTitle": "Web"
+  },
+  "Data": {
+    "DefaultConnection": {
+      "ConnectionString": "Server=GUSTAFSODERQVIS\\SQLEXPRESS;Database=ConsEmpData;Trusted_Connection=True;"
+    }
+  }
+}
