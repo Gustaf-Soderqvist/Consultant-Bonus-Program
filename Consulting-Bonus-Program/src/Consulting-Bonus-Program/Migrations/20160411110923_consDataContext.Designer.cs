@@ -8,7 +8,7 @@ using Web.infrastructure;
 namespace ConsultingBonusProgram.Migrations
 {
     [DbContext(typeof(ConsultingProgramData))]
-    [Migration("20160411103437_consDataContext")]
+    [Migration("20160411110923_consDataContext")]
     partial class consDataContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
