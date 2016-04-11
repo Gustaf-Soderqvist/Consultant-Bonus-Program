@@ -4,7 +4,7 @@ angular.module('consBonusProgam').
         'use strict';
         var vm = this;
 
-        vm.employee = {};
+        vm.employee = {}; 
         vm.employee.firtName = '';
         vm.employee.lastName = '';
         vm.employee.dateOfEmployment = '';

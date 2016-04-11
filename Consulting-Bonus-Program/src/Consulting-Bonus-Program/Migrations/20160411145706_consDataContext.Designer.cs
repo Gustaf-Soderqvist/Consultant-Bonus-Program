@@ -8,7 +8,7 @@ using Web.infrastructure;
 namespace ConsultingBonusProgram.Migrations
 {
     [DbContext(typeof(ConsultingProgramData))]
-    [Migration("20160411110923_consDataContext")]
+    [Migration("20160411145706_consDataContext")]
     partial class consDataContext
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,8 +29,6 @@ namespace ConsultingBonusProgram.Migrations
 
                     b.Property<string>("LastName")
                         .IsRequired();
-
-                    b.Property<double>("LoyaltyFactor");
 
                     b.HasKey("Id");
                 });

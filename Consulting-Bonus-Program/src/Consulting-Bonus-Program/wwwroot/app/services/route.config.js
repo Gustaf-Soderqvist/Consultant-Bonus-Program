@@ -32,6 +32,11 @@
                           {
                               templateUrl: "app/employee/views/employee.html",
                               controller: "employeeController as vm",
+                              resolve: {
+                                  employeeList: function (employees) {
+                                      return employees.list();
+                                  }
+                              }
                           },
                           'title': {
                               template: 'employee'
@@ -46,6 +51,11 @@
                         {
                             templateUrl: "app/employee/bonusCalc/views/bonus.html",
                             controller: "bonusController as vm",
+                            resolve: {
+                                employeeList: function (employees) {
+                                    return employees.list();
+                                }
+                            }
                         },
                         'title': {
                             template: 'bonus'

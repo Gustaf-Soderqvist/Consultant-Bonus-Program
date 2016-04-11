@@ -1,14 +1,11 @@
 ﻿
 angular.module('consBonusProgam').
-    controller('bonusController', ['employees', '$window', function (employees, $window) {
+    controller('bonusController', ['employeeList', '$window', function (employeeList, $window) {
         'use strict';
          var vm = this;
 
         vm.netIncome = '';
-        vm.employees = employees;
-        employees.list().then(function (res, status, headers, config) {
-            vm.employees = res.data;
-        });
+        vm.employees = employeeList;
         vm.calculateBonusForEmployees = calculateBonusForEmployees;
 
         function calculateBonusPot() {

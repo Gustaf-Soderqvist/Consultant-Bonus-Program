@@ -30,7 +30,9 @@ angular.module('consBonusProgam').
         }
 
         function list() {
-            return $http.get('/api/employee');
+            return $http.get('/api/employee').then(function(res, status, headers, config) {
+                return res.data;
+            });
         }
 
         return service;

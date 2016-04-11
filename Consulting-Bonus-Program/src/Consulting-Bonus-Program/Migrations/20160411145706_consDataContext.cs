@@ -17,8 +17,7 @@ namespace ConsultingBonusProgram.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateOfEmployment = table.Column<DateTime>(nullable: false),
                     FirstName = table.Column<string>(nullable: false),
-                    LastName = table.Column<string>(nullable: false),
-                    LoyaltyFactor = table.Column<double>(nullable: false)
+                    LastName = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

@@ -37,9 +37,21 @@ namespace Web.Controllers
 
         //POST
         [HttpPost]
-        public void Post(int id, [FromBody] Employee value)
+        public IActionResult Post(int id, [FromBody] Employee value)
         {
-             EmployeeRepo.AddEmployee(value);
+            if (ModelState.IsValid)
+            {
+                if (value.Id == 0)
+                {
+                    return new ObjectResult(value);
+                }
+                else
+                {
+                    EmployeeRepo.AddEmployee(value);
+                    return new ObjectResult(value);
+                }
+            }
+            return new BadRequestObjectResult(ModelState);
         }
 
         //PUT
@@ -51,9 +63,10 @@ namespace Web.Controllers
 
         //DELETE
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
             EmployeeRepo.DeleteEmployee(id);
+            return new HttpStatusCodeResult(200);
         }
   
         protected override void Dispose(bool disposing)

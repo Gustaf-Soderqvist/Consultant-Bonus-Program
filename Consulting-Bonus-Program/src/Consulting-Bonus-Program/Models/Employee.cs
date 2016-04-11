@@ -1,6 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-
+using System.Globalization;
 
 namespace Web.Repositories
 {
@@ -16,8 +16,7 @@ namespace Web.Repositories
         public string LastName { get; set; }
 
         [Required(ErrorMessage = "Date of employment is Required.")]
-        [DataType(DataType.Date)]
-        public DateTime DateOfEmployment {get; set; }
+        public DateTime DateOfEmployment { get; set; }
 
         public double LoyaltyFactor
         {

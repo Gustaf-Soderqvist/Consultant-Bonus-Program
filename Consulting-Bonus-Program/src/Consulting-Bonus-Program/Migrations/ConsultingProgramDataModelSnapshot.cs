@@ -29,8 +29,6 @@ namespace ConsultingBonusProgram.Migrations
                     b.Property<string>("LastName")
                         .IsRequired();
 
-                    b.Property<double>("LoyaltyFactor");
-
                     b.HasKey("Id");
                 });
         }
