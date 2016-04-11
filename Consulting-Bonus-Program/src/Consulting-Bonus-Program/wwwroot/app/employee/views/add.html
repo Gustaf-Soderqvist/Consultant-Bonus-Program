@@ -24,6 +24,7 @@
                            id="DateOfEmployment"
                            value="{{ vm.employee.dateOfEmployment | date:'dd-MM-yyyy'}}"
                            placeholder="mm-dd-yyyy"
+                           disabled
                            required>
                     <div style="display:inline-block; min-height:290px;">
                         <uib-datepicker ng-model="vm.employee.dateOfEmployment"
