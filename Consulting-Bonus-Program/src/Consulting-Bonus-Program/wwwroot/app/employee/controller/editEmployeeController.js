@@ -1,18 +1,23 @@
-﻿(function () {
-    'use strict';
-
-    angular
-        .module('consBonusProgam')
-        .controller('editEmployeeController', editEmployeeController);
-
-    editEmployeeController.$inject = ['employees', '$state', '$stateParams'];
-
-    function editEmployeeController(employees, $state, $stateParams) {
-
+﻿
+angular.module('consBonusProgam').
+    controller('editEmployeeController', ['employees', '$state', '$stateParams', function (employees, $state, $stateParams) {
+        'use strict';
         var vm = this;
 
         vm.save = save;
         vm.remove = remove;
+        vm.open = open;
+
+       function open($event) {
+            $event.preventDefault();
+            $event.stopPropagation();
+            vm.opened = true;
+       };
+
+
+       vm.opened = {
+           opened: false
+       };
 
         function save(employee) {
             employees.save(employee).then(function () {
@@ -33,6 +38,5 @@
                 vm.employee = employee;
             });
         }
-    }
-})();
+    }]);
 

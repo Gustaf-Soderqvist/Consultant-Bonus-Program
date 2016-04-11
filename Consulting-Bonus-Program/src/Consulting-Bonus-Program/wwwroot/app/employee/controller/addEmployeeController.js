@@ -1,20 +1,13 @@
-﻿(function () {
-    'use strict';
-
-    angular
-        .module('consBonusProgam')
-        .controller('addEmployeeController', addEmployeeController);
-
-    addEmployeeController.$inject = ['employees', '$state'];
-
-    function addEmployeeController(employees, $state) {
-
+﻿
+angular.module('consBonusProgam').
+    controller('addEmployeeController', ['employees', '$state', '$stateParams', function (employees, $state, $stateParams) {
+        'use strict';
         var vm = this;
-        vm.employee = {};
 
+        vm.employee = {};
         vm.employee.firtName = '';
         vm.employee.lastName = '';
-        vm.employee.DateOfEmployment = '';
+        vm.employee.dateOfEmployment = '';
 
         vm.save = save;
 
@@ -23,10 +16,4 @@
                 $state.go("employee");
             });
         }
-
-        activate();
-
-        function activate() {
-        }
-    }
-})();
+    }]);

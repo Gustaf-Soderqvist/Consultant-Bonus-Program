@@ -1,16 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+
 
 namespace Web.Repositories
 {
     public class Employee
     {
+
         public int Id { get; set; }
+
+        [Required(ErrorMessage = "First name is Required.")]
         public string FirstName { get; set; }
+
+        [Required(ErrorMessage = "Last name is Required.")]
         public string LastName { get; set; }
-        public DateTime DateOfEmployment { get; set; }
+
+        [Required(ErrorMessage = "Date of employment is Required.")]
+        [DataType(DataType.Date)]
+        public DateTime DateOfEmployment {get; set; }
 
         public double LoyaltyFactor
         {

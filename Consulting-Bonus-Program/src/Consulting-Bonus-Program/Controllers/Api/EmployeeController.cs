@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNet.Mvc;
 using Web.Repositories;
-using Web.infrastructure;
 
 namespace Web.Controllers
 {
@@ -23,16 +22,28 @@ namespace Web.Controllers
 
         // GET: /Employee/{id}
         [HttpGet("{id}")]
-        public Employee Get(int id)
+        public IActionResult Get(int id)
         {
-            return EmployeeRepo.GetEmployeeByID(id);
+            var employee = EmployeeRepo.GetEmployeeByID(id);
+            if (employee == null)
+            {
+                return new HttpNotFoundResult();
+            }
+            else
+            {
+                return new ObjectResult(employee);
+            }
         }
 
         //POST
         [HttpPost]
-        public void Post(int id, [FromBody] Employee value)
+        public IActionResult Post(int id, [FromBody] Employee value)
         {
-             EmployeeRepo.AddEmployee(value);
+            if (ModelState.IsValid)
+            {
+                EmployeeRepo.AddEmployee(value);
+            }
+            return new BadRequestObjectResult(ModelState);
         }
 
         //PUT

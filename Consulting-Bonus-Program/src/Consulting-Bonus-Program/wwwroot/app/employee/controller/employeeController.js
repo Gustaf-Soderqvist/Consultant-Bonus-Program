@@ -1,14 +1,9 @@
-﻿(function () {
-    'use strict';
-
-    angular.module('consBonusProgam')
-        .controller('employeeController', employeeController);
-
-    employeeController.$inject = ['employees', '$state', '$stateParams'];
-
-    function employeeController(employees, $state, $stateParams) {
-
+﻿
+angular.module('consBonusProgam').
+    controller('employeeController', ['employees', '$state', '$stateParams', function (employees, $state, $stateParams) {
+        'use strict';
         var vm = this;
+
         vm.employees = employees
         // return list with employees
         employees.list().then(function (res, status, headers, config) {
@@ -25,5 +20,4 @@
         function editEmployee(employee) {
             $state.go('edit', { id: employee.id });
         };
-    }
-})();
+}]);

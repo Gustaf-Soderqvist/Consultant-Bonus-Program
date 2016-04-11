@@ -3,37 +3,54 @@
 </h4>
 <div class="row flex-row">
     <div class="col-sm-8">
-        <form class="form-horizontal">
+        <form class="form-horizontal" name="edit">
             <div class="form-group">
                 <label for="firstName" class="col-sm-2 control-label">First name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="firstName" placeholder="First name" ng-model="vm.employee.firstName">
+                    <input type="text" class="form-control" id="firstName" placeholder="First name" ng-model="vm.employee.firstName" required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="lastName" class="col-sm-2 control-label">Last name</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="lastName" placeholder="Last name" ng-model="vm.employee.lastName">
+                    <input type="text" class="form-control" id="lastName" placeholder="Last name" ng-model="vm.employee.lastName" required>
                 </div>
             </div>
             <div class="form-group">
-                <label for="description" class="col-sm-2 control-label">Employment date</label>
+                <label for="dateOfEmp" class="col-sm-2 control-label">Employment date</label>
                 <div class="col-sm-10">
-                    <input type="date"
-                           id="dateInput"
-                           name="input"
-                           ng-model="vm.employee.DateOfEmployment"
-                           placeholder="yyyy-MM-dd" />
+                        <input type="text" 
+                               class="form-control" 
+                               ng-model="vm.employee.dateOfEmployment" 
+                             />
                 </div>
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10 ">
-                    <button type="submit" class="btn btn-default" ng-click="vm.save(vm.employee)">Save contact</button>
-
-                    <button type="submit" class="btn btn-danger" ng-click="vm.remove(vm.employee)">Remove contact</button>
+                    <button type="submit" class="btn btn-default" ng-click="vm.save(vm.employee)" ng-disabled="edit.$invalid">Save contact</button>
+                    <button type="submit" class="btn btn-default" ui-sref="employee">Cancel</button>
+                    <button type="submit" class="btn btn-danger pull-right" data-toggle="modal" data-target="#removeEmployee">Remove contact</button>
                 </div>
             </div>
         </form>
+    </div>
+</div>
+
+<div class="modal" id="removeEmployee" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Remove Employee</h4>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to remove employee?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger pull-left"  data-dismiss="modal" ng-click="vm.remove(vm.employee)">Remove</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
     </div>
 </div>
 

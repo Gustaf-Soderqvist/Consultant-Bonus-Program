@@ -1,13 +1,7 @@
-﻿(function () {
-    'use strict';
-
-    angular
-        .module('consBonusProgam')
-        .factory('employees', employees);
-
-    employees.$inject = ['$http'];
-
-    function employees($http) {
+﻿
+angular.module('consBonusProgam').
+    factory('employees', ['$http', function ($http) {
+        'use strict';
 
         var service = {
             save: save,
@@ -40,5 +34,5 @@
         }
 
         return service;
-    };
-})();
+
+    }]);

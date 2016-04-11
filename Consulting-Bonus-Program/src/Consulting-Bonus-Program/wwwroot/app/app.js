@@ -9,6 +9,7 @@
     angular.module('consBonusProgam', [
         'ui.router',
         'ngAnimate',
-        'underscore'
+        'underscore',
+        'ui.bootstrap'
     ]);
 })();

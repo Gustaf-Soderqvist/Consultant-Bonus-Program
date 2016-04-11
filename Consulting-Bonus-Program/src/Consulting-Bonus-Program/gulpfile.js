@@ -12,7 +12,8 @@ var paths = {
 };
 
 var itemsToCopy = {
-    './node_modules/underscore/underscore*.js': paths.webroot + 'lib'
+    './node_modules/underscore/underscore*.js': paths.webroot + 'lib',
+    './node_modules/angular-ui-bootstrap/dist/ui-bootstrap**': paths.webroot + 'lib/ui-bootstrap',
 }
 
 paths.js = paths.webroot + "js/**/*.js";
