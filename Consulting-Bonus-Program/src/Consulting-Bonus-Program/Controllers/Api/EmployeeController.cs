@@ -37,13 +37,9 @@ namespace Web.Controllers
 
         //POST
         [HttpPost]
-        public IActionResult Post(int id, [FromBody] Employee value)
+        public void Post(int id, [FromBody] Employee value)
         {
-            if (ModelState.IsValid)
-            {
-                EmployeeRepo.AddEmployee(value);
-            }
-            return new BadRequestObjectResult(ModelState);
+             EmployeeRepo.AddEmployee(value);
         }
 
         //PUT
