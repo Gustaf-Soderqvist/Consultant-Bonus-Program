@@ -41,16 +41,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (value.Id == 0)
-                {
-                    return new ObjectResult(value);
-                }
-                else
-                {
-                    EmployeeRepo.AddEmployee(value);
-                    return new ObjectResult(value);
-                }
+                EmployeeRepo.AddEmployee(value);
+                return new ObjectResult(value);
             }
+
             return new BadRequestObjectResult(ModelState);
         }
 
